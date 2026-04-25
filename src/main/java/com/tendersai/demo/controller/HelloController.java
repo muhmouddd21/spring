@@ -17,7 +17,7 @@ public class HelloController {
     public HelloResponse hello() {
         return new HelloResponse("Hello, World!");
     }
-    @GetMapping("/")
+    @GetMapping("/mahmoud")
     public HelloResponse getMethodName(@RequestParam String param) {
         return new HelloResponse("Hello, " + param + "!");
     }
