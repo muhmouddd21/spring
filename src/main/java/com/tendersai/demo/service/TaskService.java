@@ -25,7 +25,7 @@ public class TaskService {
     public List<TaskResponse> getAllTasks() {
         return taskDao.findAll()
                 .stream()
-                    .map(taskMapper::apply)
+                .map(taskMapper)
                 .toList();
     }
 
