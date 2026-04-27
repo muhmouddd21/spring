@@ -21,6 +21,9 @@ public class TaskService {
         this.taskMapper = taskMapper;
 
     }
+    public int getTaskCount() {
+        return taskDao.count();
+    }
 
     public List<TaskResponse> getAllTasks() {
         return taskDao.findAll()
@@ -35,8 +38,8 @@ public TaskResponse createTask(TaskRequest request) {
     Task task = new Task(
         request.title(),
         request.description(),
-        null,
-        "NEW",
+        request.assigneeName(),
+        request.status(),
         LocalDateTime.now()
     );
 

@@ -3,7 +3,7 @@ package com.tendersai.demo.DTO;
 import java.time.LocalDateTime;
 
 public  record TaskResponse(
-    String id,
+    Long id,
     String title,
     String assigneeName,
     String status,

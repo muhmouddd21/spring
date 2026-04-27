@@ -28,10 +28,17 @@ public class TasksController {
     public List<TaskResponse> getAll() {
         return this.taskService.getAllTasks();
     }
+    @GetMapping("/tasks/count")
+    public int getMethodName() {
+        return this.taskService.getTaskCount();
+    }
+    
+
     @PostMapping("/tasks")
     public TaskResponse create(@Valid @RequestBody TaskRequest entity) {
         return this.taskService.createTask(entity);
     }
+
     
     
 }

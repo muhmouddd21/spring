@@ -1,10 +1,10 @@
 package com.tendersai.demo.entity;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 public class Task {
-    private String id;
+    private Long id;
     private String title;
     private String description;
     private String assigneeName;
@@ -13,9 +13,7 @@ public class Task {
 
     public Task() {
     }
-    
     public Task(String title, String description, String assigneeName, String status, LocalDateTime createdAt) {
-        this.id = UUID.randomUUID().toString();
         this.title = title;
         this.description = description;
         this.assigneeName = assigneeName;
@@ -23,10 +21,10 @@ public class Task {
         this.createdAt = createdAt;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
