@@ -26,24 +26,45 @@ public class TaskService {
     }
 
     public List<TaskResponse> getAllTasks() {
-        return taskDao.findAll()
-                .stream()
-                .map(taskMapper)
-                .toList();
+        return taskDao.findAll().
+        stream()
+        .map(taskMapper)
+        .toList();
     }
 
 
-public TaskResponse createTask(TaskRequest request) {
+    public TaskResponse createTask(TaskRequest request) {
 
-    Task task = new Task(
-        request.title(),
-        request.description(),
-        request.assigneeName(),
-        request.status(),
-        LocalDateTime.now()
-    );
+        Task task = new Task(
+            request.title(),
+            request.description(),
+            request.assignee_name(),
+            request.status(),
+            LocalDateTime.now()
+        );
 
-    taskDao.save(task);
-    return taskMapper.apply(task);
-}
+  
+        long id = taskDao.save(task);   
+        task.setId(id);   
+        return taskMapper.apply(task);
+    }
+ 
+
+    public boolean deleteById(long id) {
+        return taskDao.deleteById(id);
+    }
+
+    public TaskResponse updateTask(long id,TaskRequest request) {
+        Task task = new Task(
+            request.title(),
+            request.description(),
+            request.assignee_name(),
+            request.status(),
+            LocalDateTime.now()
+        );
+         task.setId(id);
+        taskDao.update(task);
+        return taskMapper.apply(task);
+    }
+
 }

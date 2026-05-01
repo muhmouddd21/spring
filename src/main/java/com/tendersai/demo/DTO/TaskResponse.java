@@ -5,9 +5,11 @@ import java.time.LocalDateTime;
 public  record TaskResponse(
     Long id,
     String title,
-    String assigneeName,
+    String description,
+    String assignee_name,
     String status,
     LocalDateTime createdAt
+    
 ) {} 
     
 

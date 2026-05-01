@@ -7,16 +7,16 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    private String assigneeName;
+    private String assignee_name;
     private String status;
     private java.time.LocalDateTime createdAt;
 
     public Task() {
     }
-    public Task(String title, String description, String assigneeName, String status, LocalDateTime createdAt) {
+    public Task(String title, String description, String assignee_name, String status, LocalDateTime createdAt) {
         this.title = title;
         this.description = description;
-        this.assigneeName = assigneeName;
+        this.assignee_name = assignee_name;
         this.status = status;
         this.createdAt = createdAt;
     }
@@ -41,10 +41,10 @@ public class Task {
         this.description = description;
     }
     public String getAssigneeName() {
-        return assigneeName;
+        return assignee_name;
     }
-    public void setAssigneeName(String assigneeName) {
-        this.assigneeName = assigneeName;
+    public void setAssigneeName(String assignee_name) {
+        this.assignee_name = assignee_name;
     }
     public String getStatus() {
         return status;

@@ -15,6 +15,7 @@ public class TaskMapper implements Function<Task, TaskResponse> {
         return new TaskResponse(
             task.getId(),
             task.getTitle(),
+            task.getDescription(),
             task.getAssigneeName(),
             task.getStatus(),
             task.getCreatedAt()

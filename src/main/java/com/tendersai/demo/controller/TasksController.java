@@ -10,9 +10,13 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -39,6 +43,13 @@ public class TasksController {
         return this.taskService.createTask(entity);
     }
 
-    
-    
+    @DeleteMapping("/tasks/{id}")
+    public boolean delete(@PathVariable long id) {
+        return this.taskService.deleteById(id);
+    }
+    @PutMapping("/tasks/{id}")
+    public TaskResponse putMethodName(@PathVariable long id, @Valid @RequestBody TaskRequest entity) {
+        return this.taskService.updateTask(id,entity);
+    }
+
 }

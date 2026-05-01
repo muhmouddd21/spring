@@ -7,8 +7,9 @@ import com.tendersai.demo.entity.Task;
 public interface TaskDaoInterface {
     Task findById(long id);
     List<Task> findAll();
-    int save(Task task);
+    long save(Task task);
     int count();
-    void deleteById(long id);
+    boolean deleteById(long id);
+    Task update(Task task);
     
 } 
