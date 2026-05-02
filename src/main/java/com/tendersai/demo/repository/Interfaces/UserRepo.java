@@ -3,9 +3,14 @@ package com.tendersai.demo.repository.Interfaces;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.tendersai.demo.entity.User;
 
+@Repository
 public interface UserRepo extends JpaRepository<User, UUID> {
     
+    @Query(value = "SELECT * FROM users WHERE email = :email", nativeQuery = true)
+    User findByEmail(String email);
 }
